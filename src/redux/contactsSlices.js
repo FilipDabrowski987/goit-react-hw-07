@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const contactsSlice = createSlice({
+const contactsSlices = createSlice({
   name: "contacts",
   initialState: {
     items: [],
@@ -17,7 +17,7 @@ const contactsSlice = createSlice({
     fetchingSuccess(state, action) {
       state.isLoading = false;
       state.error = null;
-      state.items = action.payload;
+      state.items = Array.isArray(action.payload) ? action.payload : [];
     },
 
     fetchingError(state, action) {
@@ -35,5 +35,5 @@ const contactsSlice = createSlice({
   },
 });
 
-export const { fetchingInProgress, fetchingSuccess, fetchingError, addContact, deleteContact } = contactsSlice.actions;
-export default contactsSlice.reducer;
+export const { fetchingInProgress, fetchingSuccess, fetchingError, addContact, deleteContact } = contactsSlices.actions;
+export default contactsSlices.reducer;

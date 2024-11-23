@@ -1,7 +1,7 @@
 import axios from "axios";
 import { fetchingInProgress, fetchingSuccess, fetchingError} from "./contactsSlices";
 
-axios.defaults.baseURL = "<https://67419103e4647499008e1340.mockapi.io>";
+axios.defaults.baseURL = "https://67419103e4647499008e1340.mockapi.io";
 
 export const fetchContacts = () => async dispatch => {
   try {

@@ -20,7 +20,7 @@ const ContactList = () => {
                         name={contact.name}
                         number={contact.number}
                         id={contact.id}
-                        deleteContacts={(id) => dispatch(deleteContact(id))}
+                        deleteContacts={() => dispatch(deleteContact(contact.id))}
                     />
                 </li>
             ))
