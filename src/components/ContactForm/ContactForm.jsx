@@ -11,7 +11,7 @@ const validationSchema = Yup.object().shape({
         .min(2, 'Contact name too short')
         .max(50, "Contact name too Long!")
         .required("Required"),
-    number: Yup.string()
+    phone: Yup.string()
         .matches(/^[0-9()+\-.\s]+$/, 'Number should only contain digits and valid symbols (+, -, (), .)')
         .min(2, 'Contact number too short')
         .max(50, "Contact number too Long!")
@@ -25,14 +25,14 @@ const dispatch = useDispatch();
         dispatch(addContact({
             id: nanoid(),
             name: values.name,
-            number: values.number,
+            phone: values.phone,
         }));
         actions.resetForm();
     };
      
     return (
         <Formik
-            initialValues={{ name: "", number: "" }}
+            initialValues={{ name: "", phone: "" }}
             onSubmit={handleSubmit}
             validationSchema={validationSchema}>
         <Form className='new-contact-form'>
@@ -40,8 +40,8 @@ const dispatch = useDispatch();
                 <Field  type="text" name="name" className='new-contact-form-field'/>
                 <ErrorMessage name="name" as="span" />
                 <label className='new-contact-form-label'>Number</label>
-                <Field type="text" name="number" className='new-contact-form-field' />
-                <ErrorMessage name="number" as="span"  />
+                <Field type="text" name="phone" className='new-contact-form-field' />
+                <ErrorMessage name="phone" as="span"  />
                 <div >
                     <button className='new-contact-form-button' type="submit">Add contact</button>
                 </div>
