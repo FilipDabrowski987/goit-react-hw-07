@@ -9,7 +9,7 @@ import './App.css'
 function App() {
 
   const dispatch = useDispatch();
-  const { items, isLoading, error } = useSelector((state) => state.contacts);
+  const { isLoading, error } = useSelector((state) => state.contacts);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -22,7 +22,7 @@ function App() {
       <SearchBox />
       {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
-      {!isLoading && !error && <ContactList contacts={items} />}
+      <ContactList />
     </div>
   );
 }

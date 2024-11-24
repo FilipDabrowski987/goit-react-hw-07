@@ -1,5 +1,5 @@
-import { deleteContact } from '../../redux/contactsSlices.js';
 import { useSelector, useDispatch } from "react-redux";
+import { deleteContacts } from '../../redux/operations';
 import Contact from './Contact';
 import './Contact.css'
 
@@ -20,7 +20,7 @@ const ContactList = () => {
                         name={contact.name}
                         phone={contact.phone}
                         id={contact.id}
-                        deleteContacts={() => dispatch(deleteContact(contact.id))}
+                        deleteContacts={() => dispatch(deleteContacts(contact.id))}
                     />
                 </li>
             ))
@@ -29,4 +29,4 @@ const ContactList = () => {
     );
 };
 
-export default ContactList
+export default ContactList;
