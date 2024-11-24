@@ -34,7 +34,7 @@ const contactsSlices = createSlice({
       .addCase(addContacts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items.post(action.payload);
+        state.items.push(action.payload);
       })
     
       .addCase(addContacts.rejected, (state, action) => {
@@ -49,7 +49,7 @@ const contactsSlices = createSlice({
       .addCase(deleteContacts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        // state.items.post(action.payload);
+        state.items = state.items.filter(contact => contact.id !== action.payload);
       })
     
       .addCase(deleteContacts.rejected, (state, action) => {
@@ -59,5 +59,4 @@ const contactsSlices = createSlice({
   },
 });
 
-// export const { addContact, deleteContact } = contactsSlices.actions;
 export default contactsSlices.reducer;
